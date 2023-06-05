@@ -1,3 +1,8 @@
+
+
+
+
+
 public class Lab1 {
     public static char[][] make_forward(){
         char[][] pixel = new char[4][13];
