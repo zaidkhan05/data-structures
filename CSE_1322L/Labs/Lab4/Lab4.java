@@ -28,63 +28,66 @@ class account{
     void deposit(double amount){
         account_balance += amount;
     }
+    void interest(){
+
+    }
+//     protected void interest(){
+
+//     }
 }
 class checking extends account{
     checking(){
-
+        super();
     }
     checking(double account_balance){
+        super();
         setAccount_balance(account_balance);
     }
     void withdraw(double amount){
+        super.withdraw(amount);
         if(getAccount_balance() < 0){
             System.out.println("Charging an overdraft fee of $20 because account is below $0”");
-            withdraw(amount+20);
-        }
-        else{
-            withdraw(amount);
+            super.withdraw(20);
         }
 
-    }
-    void deposit(double amount){
-        deposit(amount);
     }
 }
 
 class savings extends account{
-    private int deposit_counter = 0;
+    private static int deposit_counter = 0;
     savings(){
-
+        super();
     }
     savings(double account_balance){
+        super();
         setAccount_balance(account_balance);
     }
     void withdraw(double amount){
         if(getAccount_balance() < 500){
             System.out.println("Charging a fee of $10");
-            withdraw(amount+10);
+            super.withdraw(amount+10);
         }
         else{
-            withdraw(amount);
+            super.withdraw(amount);
         }
         
     }
     void deposit(double amount){
         deposit_counter++;
-        System.out.println("This is deposit" + deposit_counter + " to this account");
+        System.out.println("This is deposit number " + deposit_counter + " to this account");
         if(deposit_counter > 5){
             System.out.println("Charging a fee of $10");
-            withdraw(10);
-            deposit(amount);
+            super.withdraw(10);
+            super.deposit(amount);
         }
         else{
-            deposit(amount);
+            super.deposit(amount);
         }
     }
     void interest(){
-        double interest = getAccount_balance() * 0.015;
-        System.out.println("Customer earned " + interest + " in interest");
-        deposit(interest);
+        double interestamount = getAccount_balance() * 0.015;
+        System.out.println("Customer earned " + interestamount + " in interest");
+        super.deposit(interestamount);
     }
 }
 
@@ -92,10 +95,10 @@ public class Lab4 {
    
     public static void main(String[] Args){
         Scanner sc = new Scanner(System.in);
-        account save = new savings();
-        account check = new checking();
+        savings save = new savings();
+        checking check = new checking();
         int choice = 0;
-        double amount;
+        double amount = 0;
         while(choice != 8){
             System.out.println("1. Withdraw from Checking\r\n" +
                     "2. Withdraw from Savings\r\n" +
@@ -146,6 +149,7 @@ public class Lab4 {
 
     }
 }
+
 
 /*
 CSE1322L - Lab 4
