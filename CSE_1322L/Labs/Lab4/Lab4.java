@@ -31,9 +31,7 @@ class account{
     void interest(){
 
     }
-//     protected void interest(){
 
-//     }
 }
 class checking extends account{
     checking(){
