@@ -1,8 +1,44 @@
 import java.util.Scanner;
-
+class InvalidTimeException extends Exception{
+    InvalidTimeException(){}
+    InvalidTimeException(String message){
+        super(message);
+    }
+}
 public class Lab9 {
+    static int timeToSeconds(String s) throws InvalidTimeException{
+        String[] time = s.split(":", 3);
+        if(time.length != 3){
+            throw new InvalidTimeException("Time format not valid");
+        }
+        int hours = Integer.parseInt(time[0]);
+        int minutes = Integer.parseInt(time[1]);
+        int seconds = Integer.parseInt(time[2]);
+        if(hours < 0 || hours > 23){
+            throw new InvalidTimeException("Hour not valid");
+        }
+        if(minutes < 0 || minutes > 59){
+            throw new InvalidTimeException("Minute not valid");
+        }
+        if(seconds < 0 || seconds > 59){
+            throw new InvalidTimeException("Second not valid");
+        }
+        return (hours*60*60) + (minutes*60) + seconds;
+    }
    
     public static void main(String[] Args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter time 1 in 24hr format as follows (HH:MM:SS)");
+        String s1 = sc.nextLine();
+        System.out.println("Enter time 2 in 24hr format as follows (HH:MM:SS)");
+        String s2 = sc.nextLine();
+        try{
+            System.out.println("Difference in seconds: " + (timeToSeconds(s2) - timeToSeconds(s1)));
+        }
+        catch(InvalidTimeException e){
+            System.out.println(e.getMessage());
+        }
+
 
 
     }
