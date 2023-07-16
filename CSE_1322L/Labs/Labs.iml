@@ -15,6 +15,8 @@
       <sourceFolder url="file://$MODULE_DIR$/Lab9" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Lab10" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Lab11" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Lab12" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Lab13" isTestSource="false" />
     </content>
     <orderEntry type="jdk" jdkName="19" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
