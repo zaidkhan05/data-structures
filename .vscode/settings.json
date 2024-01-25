@@ -1,11 +1,12 @@
 {
     "java.project.sourcePaths": [
         "CSE_1322L/in class stuffs/src",
+        "CSE_1322L/Labs/Lab12",
         "CSE_1322L/Labs/Lab11",
         "CSE_1322L/Labs/Lab10",
         "CSE_1322L/Labs/Lab1",
         "CSE_1322L/Assignments/assignment6",
         "CSE_1322L/Assignments/assignment1",
-        "CSE_1322L/Labs/Lab12"
+        "Data_Structures/Assignments/assignment2"
     ]
 }
