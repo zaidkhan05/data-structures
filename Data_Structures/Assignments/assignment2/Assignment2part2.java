@@ -10,11 +10,9 @@ import java.util.Scanner;
 //main class
 public class Assignment2part2 {
   //recursive function
-  public static void recursiveCall(int num){
-    //arbitrary variable x to keep track of the number of tabs
-    int x = 0;
+  public static void recursiveCall(int num, int target){
     //if num is 0 return
-    if(num == 0){
+    if(num > target){
       return;
     }
     
@@ -24,14 +22,13 @@ public class Assignment2part2 {
       String tabs = "";
       for(int i = 1; i < num; i++){
         tabs += "  ";
-        x++;
       }
       //recursive call
       // recursiveCall(num - 1);
       //print out the recursive call
 
       System.out.println(tabs +"This was written by call number " + num + ".");
-      recursiveCall(num-1 );
+      recursiveCall(num+1, target);
       System.out.println(tabs +"This was ALSO written by call number " + num + ".");
       
       //this needs to start at one and then count to the input
@@ -46,9 +43,9 @@ public class Assignment2part2 {
     System.out.print("Enter a nonnegative integer:  ");
     //input
     Scanner sc = new Scanner(System.in);
-    int num = sc.nextInt();
+    int target = sc.nextInt();
     sc.close();
-    recursiveCall(num);
+    recursiveCall(1, target);
 
   }
 }
