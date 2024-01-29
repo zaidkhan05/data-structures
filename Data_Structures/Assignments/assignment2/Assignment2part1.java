@@ -39,6 +39,7 @@ Write out the logic / pseudo code to compute the factorial of n, customarily den
 
 It is important to use correct recursion terminology in your pseudo code.
 
-Next, use your pseudo code as the basis for writing a complete, well documented program. Your program should prompt the user to enter a nonnegative number and then display the factorial for that number. Your program must contain a function called factorial. Function factorial calculates the factorial of a number. Sample output is included below.
+Next, use your pseudo code as the basis for writing a complete, well documented program. Your program should prompt the user to enter a nonnegative number and then display the factorial for that number. 
+Your program must contain a function called factorial. Function factorial calculates the factorial of a number. Sample output is included below.
 
  */
