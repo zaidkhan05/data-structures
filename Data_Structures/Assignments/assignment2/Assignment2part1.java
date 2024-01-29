@@ -8,7 +8,7 @@
 import java.util.Scanner;
 
 //main class
-public class Assignment2 {
+public class Assignment2part1 {
   //factorial method
   public static int factorial(int f){
     //if f is 0 or 1 return 1
