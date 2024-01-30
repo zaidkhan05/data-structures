@@ -9,30 +9,27 @@ import java.util.Scanner;
 
 //main class
 public class Assignment2part2 {
-  //recursive function
+
   public static void recursiveCall(int num, int target){
-    //if num is 0 return
+    //checks for the values to make sure the target is not exceeded(standard recursion)
     if(num > target){
       return;
     }
-    
-    //else print out the recursive call
+
     else{
-      //set up for the tabs
+      //helps for printing out the indents
       String tabs = "";
       for(int i = 1; i < num; i++){
         tabs += "  ";
       }
-      //recursive call
-      // recursiveCall(num - 1);
-      //print out the recursive call
-
+      //prints out the statements
       System.out.println(tabs +"This was written by call number " + num + ".");
+      //calls the method again with num+1 replacing the first parameter, 
+      //with the target staying the same so the recursion stops when it reaches the target, 
+      //so it can start at 1 normally and print out the other statements to complete the "arrow" shape
       recursiveCall(num+1, target);
       System.out.println(tabs +"This was ALSO written by call number " + num + ".");
-      
-      //this needs to start at one and then count to the input
-      //then it needs to count back down to one
+  
     }
 
 
@@ -41,7 +38,6 @@ public class Assignment2part2 {
   public static void main(String[] args) {
     //e
     System.out.print("Enter a nonnegative integer:  ");
-    //input
     Scanner sc = new Scanner(System.in);
     int target = sc.nextInt();
     sc.close();
@@ -51,24 +47,20 @@ public class Assignment2part2 {
 }
 
 /*
-
-Write a complete, well documented program, that prompts the user for input and tests a recursive function. You will write a function that implements recursion and produces the following output:
-
-//	Sample below is for input of 4:
-//	Note: indentions are required for credit.
-
-//	Expected Output
-
-This was written by call number 1.
-  This was written by call number 2.
-    This was written by call number 3.
-      This was written by call number 4.
-      This was ALSO written by call number 4.
-    This was ALSO written by call number 3.
-  This was ALSO written by call number 2.
-This was ALSO written by call number 1.
-
-In this example, the recursion stopped when it reached four levels deep (because 4 was input), but your program should be capable of continuing to any specified level.
-
+psuedocode:
+  recursiveCall method with 2 parameters, num and target
+    if num > target
+      return
+    else
+      print out "This was written by call number " + num + "."
+      call recursiveCall(num+1, target)
+      print out "This was ALSO written by call number " + num + "."
+  main
+    ask for input
+    put input into a variable
+    call recursiveCall method with 1 and the input as parameters
+    
+    
+    1 is the first call number so that it starts, until it reaches the target that we input
 
  */
