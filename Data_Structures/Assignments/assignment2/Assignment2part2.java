@@ -7,7 +7,7 @@
 
 import java.util.Scanner;
 
-//main class
+
 public class Assignment2part2 {
 
   public static void recursiveCall(int num, int target){
