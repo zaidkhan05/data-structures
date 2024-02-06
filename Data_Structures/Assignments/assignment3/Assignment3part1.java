@@ -33,6 +33,7 @@ class LinkedList{
         }
     }
     public void printRange(int x, int y){
+        this.removeRepetitions();
         Node temp = head;
         boolean xFound = false;
         boolean yFound = false;
@@ -115,8 +116,11 @@ public class Assignment3part1 {
 
         //print the range of values
         sampleData.printRange(2, 5);
+        System.out.println();
        sampleData.printRange(2, 78);
+       System.out.println();
         sampleData.printRange(2, 1);
+        System.out.println();
         sampleData.printRange(8, 5);
         //remove the repetitions
         // list.removeRepetitions();
