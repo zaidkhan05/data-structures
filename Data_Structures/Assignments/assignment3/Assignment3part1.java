@@ -46,7 +46,10 @@ class LinkedList{
             }
             temp = temp.next;
         }
-        if(xFound && yFound){
+        if(!xFound){
+            System.out.println();
+        }
+        else if(xFound && yFound && x<y){
             temp = head;
             while(temp != null){
                 if(temp.data == x){
@@ -60,8 +63,9 @@ class LinkedList{
                 }
                 temp = temp.next;
             }
+            System.out.println();
         }
-        else if(xFound && !yFound){
+        else if(xFound){
             temp = head;
             while(temp != null){
                 if(temp.data == x){
@@ -75,6 +79,7 @@ class LinkedList{
                 }
                 temp = temp.next;
             }
+            System.out.println();
         }
     }
     public void removeRepetitions(){
