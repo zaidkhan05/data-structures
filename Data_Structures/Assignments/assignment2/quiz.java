@@ -22,6 +22,7 @@ public class quiz {
         Scanner sc = new Scanner(System.in);
         long n = sc.nextLong();
         System.out.println("The sum of the digits in " + n + " is " + sumDigits(n));
+        sc.close();
     }
     
 }
