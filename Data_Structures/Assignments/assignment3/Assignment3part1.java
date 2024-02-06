@@ -7,80 +7,100 @@
 
 import java.util.*;
 
-public class Assignment3part1 {
-    //printrange method
-    void printRange(int x, int y){
-        //create a linked list
-        LinkedList<Integer> sampleData = new LinkedList<Integer>();
-        //add values to the list
-        sampleData.add(1);
-        sampleData.add(1);
-        sampleData.add(2);
-        sampleData.add(3);
-        sampleData.add(3);
-        sampleData.add(4);
-        sampleData.add(4);
-        sampleData.add(5);
-        sampleData.add(6);
-        sampleData.add(7);
-        //create an iterator
-        ListIterator<Integer> listIterator = sampleData.listIterator();
-        //create a boolean to check if the first value is found
-        boolean foundFirst = false;
-        //create a boolean to check if the second value is found
-        boolean foundSecond = false;
-        //create a string to store the values
-        String values = "";
-        //iterate through the list
-        while(listIterator.hasNext()){
-            //if the first value is found
-            if(listIterator.next() == x){
-                //set the boolean to true
-                foundFirst = true;
-                //add the value to the string
-                values += x + " ";
-                //iterate through the rest of the list
-                while(listIterator.hasNext()){
-                    //if the second value is found
-                    if(listIterator.next() == y || !listIterator.hasNext()){
-                        //set the boolean to true
-                        foundSecond = true;
-                        //print the values
-                        System.out.println(values);
-                        //break the loop
-                        break;
+
+class Node{
+    int data;
+    Node next;
+    Node(int data){
+        this.data = data;
+        this.next = null;
+    }
+}
+
+class LinkedList{
+    Node head;
+    public void add(int data){
+        Node newNode = new Node(data);
+        if(head == null){
+            head = newNode;
+        }
+        else{
+            Node temp = head;
+            while(temp.next != null){
+                temp = temp.next;
+            }
+            temp.next = newNode;
+        }
+    }
+    public void printRange(int x, int y){
+        Node temp = head;
+        boolean xFound = false;
+        boolean yFound = false;
+        while(temp != null){
+            if(temp.data == x){
+                xFound = true;
+            }
+            if(temp.data == y){
+                yFound = true;
+            }
+            temp = temp.next;
+        }
+        if(xFound && yFound){
+            temp = head;
+            while(temp != null){
+                if(temp.data == x){
+                    System.out.print(temp.data + " ");
+                    temp = temp.next;
+                    while(temp.data != y){
+                        System.out.print(temp.data + " ");
+                        temp = temp.next;
                     }
-                    //add the value to the string
-                    values += listIterator.next() + " ";
-                    
+                    break;
+                }
+                temp = temp.next;
+            }
+        }
+        else if(xFound && !yFound){
+            temp = head;
+            while(temp != null){
+                if(temp.data == x){
+                    System.out.print(temp.data + " ");
+                    temp = temp.next;
+                    while(temp != null){
+                        System.out.print(temp.data + " ");
+                        temp = temp.next;
+                    }
+                    break;
+                }
+                temp = temp.next;
+            }
+        }
+    }
+    public void removeRepetitions(){
+        Node p = head;
+        while(p != null){
+            Node q = p;
+            while(q.next != null){
+                if(p.data == q.next.data){
+                    q.next = q.next.next;
+                }
+                else{
+                    q = q.next;
                 }
             }
-            //if the second value is found
-            if(foundSecond){
-                //break the loop
-                break;
-            }
+            p = p.next;
         }
-        //if the first value is not found
-        if(!foundFirst){
-            //print nothing
-            System.out.println("");
-        }
-        //if the second value is not found
-        // if(!foundSecond){
-        //     //print the values
-        //     System.out.println(values);
-        // }
-
     }
 
-    void removeRepetitions(){
+}
 
-    }
+
+public class Assignment3part1 {
+
 
     public static void main(String[] args) {
         //create a linked list
-        LinkedList<Integer> sampleData = new LinkedList<Integer>();
+        LinkedList sampleData = new LinkedList();
         //add values to the list
         sampleData.add(1);
         sampleData.add(1);
@@ -94,11 +114,10 @@ public class Assignment3part1 {
         sampleData.add(7);
 
         //print the range of values
-        Assignment3part1 list = new Assignment3part1();
-        list.printRange(2, 5);
-       list.printRange(2, 78);
-        list.printRange(2, 1);
-        list.printRange(8, 5);
+        sampleData.printRange(2, 5);
+       sampleData.printRange(2, 78);
+        sampleData.printRange(2, 1);
+        sampleData.printRange(8, 5);
         //remove the repetitions
         // list.removeRepetitions();
     }

@@ -2,37 +2,70 @@ import java.util.Scanner;
 
 
 
+
 public class quiz {
 
-    public static int sumDigits(long n){
-        if(n == 0){
-        return 0;
-        }
-        
-        else{
-            //cast long to int because the return type is int
-            //n % 10 gets the last digit of the number
-            //n/10 gets rid of the last digit
-            //then it adds the last digit to the sum of the rest of the digits
-            return (int)(n % 10) + sumDigits(n/10);
-        }
-    }
     public static void main(String[] args) {
-        System.out.print("Enter an integer:  ");
+        //create a scanner
         Scanner sc = new Scanner(System.in);
-        long n = sc.nextLong();
-        System.out.println("The sum of the digits in " + n + " is " + sumDigits(n));
+        //create a boolean to check if the user wants to quit
+        boolean quit = false;
+        //create a while loop to keep the program running
+        while(!quit){
+            System.out.println("1. Write something to the screen");
+            System.out.println("2. add 2 numbers together");
+            System.out.println("3. Print out a list of numbers from 1 to 10");
+            System.out.println("4. Quit");
+            System.out.print("Enter your choice: ");
+            //read the input from the user
+            int choice = sc.nextInt();
+            //create a switch statement to check the user input
+            switch(choice){
+                case 1:
+                    System.out.println("What would you like to write? ");
+                    sc.nextLine();
+                    String input = sc.nextLine();
+                    System.out.println(input);
+                    break;
+                case 2:
+                    System.out.println("Enter the first number: ");
+                    int num1 = sc.nextInt();
+                    System.out.println("Enter the second number: ");
+                    int num2 = sc.nextInt();
+                    System.out.println("The sum of the two numbers is " + (num1 + num2));
+                    break;
+                case 3:
+                    for(int i = 1; i <= 10; i++){
+                        System.out.print(i + " ");
+                    }
+                    System.out.println();
+                    break;
+                case 4:
+                    quit = true;
+                    break;
+                default:
+                    System.out.println("Invalid input");
+                    break;
+            }
+            
+        }
+        //close the scanner
         sc.close();
     }
     
 }
 
 /*
-Write a class with a main method  [test program] that prompts the user to enter an integer and displays the sum of all the integers in that number.  You must write a recursive method that computes the sum of the digits in an integer and use the following method header:
+Let's do something fun.  Write a Java program that uses a simple menu to read in the user input from the screen and write it back out to the screen.  You may NOT use the Java Menu Library options.  Write this yourself.
 
-        public static int sumDigits(long n)
+Here's the algorithm
 
-Example
-
-        sumDigits(234) returns 2 + 3 + 4 = 9. 
+Declare your imports
+Create your public class and main method
+Declare needed variables
+Create menu options (with option to Quit)
+Ask user to make choice and read input from keyboard
+While user input is valid, perform task specified - write something to screen
+If user input is invalid, write message notifying invalid input
+Stop the program when user enters quit option
  */
