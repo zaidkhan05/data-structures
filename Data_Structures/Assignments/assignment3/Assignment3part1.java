@@ -5,9 +5,8 @@
 // Assignment:  3 – Part 1 Iterator
 // IDE:  Visual Studio Code - Insiders
 
-import java.util.*;
 
-
+//node
 class Node{
     int data;
     Node next;
@@ -17,8 +16,10 @@ class Node{
     }
 }
 
+//linked list class
 class LinkedList{
     Node head;
+    //add method to add data to the list
     public void add(int data){
         Node newNode = new Node(data);
         if(head == null){
@@ -32,11 +33,13 @@ class LinkedList{
             temp.next = newNode;
         }
     }
+    //printrange method
     public void printRange(int x, int y){
         this.removeRepetitions();
         Node temp = head;
         boolean xFound = false;
         boolean yFound = false;
+        //check if x and y are in the list
         while(temp != null){
             if(temp.data == x){
                 xFound = true;
@@ -46,9 +49,11 @@ class LinkedList{
             }
             temp = temp.next;
         }
+        //no x then no print :)
         if(!xFound){
             System.out.println();
         }
+        //makes sure x is before y if y is even in the list
         else if(xFound && yFound && x<y){
             temp = head;
             while(temp != null){
@@ -65,6 +70,7 @@ class LinkedList{
             }
             System.out.println();
         }
+        //if y is not in the list then still print x to the end
         else if(xFound){
             temp = head;
             while(temp != null){
@@ -82,6 +88,7 @@ class LinkedList{
             System.out.println();
         }
     }
+    //remove repetitions method
     public void removeRepetitions(){
         Node p = head;
         while(p != null){
@@ -121,84 +128,11 @@ public class Assignment3part1 {
 
         //print the range of values
         sampleData.printRange(2, 5);
-        System.out.println();
+
        sampleData.printRange(2, 78);
-       System.out.println();
+
         sampleData.printRange(2, 1);
-        System.out.println();
+
         sampleData.printRange(8, 5);
-        //remove the repetitions
-        // list.removeRepetitions();
     }
 }
-
-
-/*
-Part 1 – Linked List Iterator
-
-Write a program that creates a linked list of integers, assigns integers to the linked list, prints a range of values in the list and eliminates duplicate numbers in the list. Your program must have two methods:
-
-First method is called printRange which has two parameters, x and y. printRange should write out all integers in the list that are between the first occurrence of x (inclusive) and the first occurrence of y (but not including y). You may assume integers can be compared for equality using ==
-
-Use the following header for the method:
-
-void printRange(int x, int y);
-
-Use the following logic to develop printRange	This makes the implementation easier.
-
-•	Do not sort or reorganize the data
-
-•	Print integers from x to y including x but not including y
-
-•	If there isn’t an entry with a value equal to x, then print nothing
-
-•	If there isn’t an entry after x, that has a value equal to y, then print the integers from x (inclusive) to the end of the list
-
-•	Print the values on one line separated by space.
-
-•	Put an end of line after the values are ALL printed.
-
-
-Hint, your program will need to make multiple calls to printRange
-
-For this program, you are [hard coding] creating your data in the program, and not entering it from the console. In your program create a linked list with the following members:
-
-{1, 1, 2, 3, 3, 4, 4, 5, 6, 7}.
-
-Review the sample output below. You MUST USE the values for x and y, shown (shown in bold) as parameters in multiple calls to printRange to test the logic of your program
-
-Below is sample output.	.	// Comments
- 
-List [1,2,3,4,5,6,7]		// x = 2	y = 5
-prints  2 3	4	// prints list including x but not y
-
-
-
-
-List [1,2,3,4,5,6,7]		// x = 2	y = 78
-prints  2 3	4567	// prints list including x, no value =y so print to end
-List [1,2,3,4,5,6,7]		// x = 2	y = 1
-prints  2 3	4567	// prints list including x, no value =y so print to end
-List [1,2,3,4,5,6,7]		// x = 8	y = 5
-		// prints nothing
-
-
-
-
-The second method is called removeRepetitions. removeRepetitions steps through the linked list comparing numbers and when duplicate numbers are found, removes one of the duplicate numbers. Again, you may assume integers can be compared for equality using ==
-
-Use the following header for the method removeRepetitions:
-
-void removeRepetitions()
-
-Here is a brief outline of an algorithm for removeRepetitions:
-
-variable p steps through the list
-
-for each number in the list, define a new variable q equal to p While q is not the last number in the list
-
-If the next number has data equal to the data in p, remove the next number
-
-Otherwise move q to the next number
-
- */
