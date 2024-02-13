@@ -8,15 +8,16 @@
 //Stack class
 import java.util.Scanner;
 
-//normal stack class
-class Stack {
+//stack class
+//calling it smth else cuz its being used in the other file and breaking it :)
+class Stacker {
   //variables
   int top;
   int size;
   char[] arr;
 
   //constructor
-  public Stack(int size) {
+  public Stacker(int size) {
     this.size = size;
     arr = new char[size];
     top = -1;
@@ -60,9 +61,9 @@ public class Assignment4part2 {
     System.out.println("Enter a string to check if it is a palindrome: ");
     String input = sc.nextLine();
     //create stack
-    Stack stack1 = new Stack(input.length());
-    Stack stack2 = new Stack(input.length());
-    Stack stack3 = new Stack(input.length());
+    Stacker stack1 = new Stacker(input.length());
+    Stacker stack2 = new Stacker(input.length());
+    Stacker stack3 = new Stacker(input.length());
     //push string onto stack
     for (int i = 0; i < input.length(); i++) {
       System.out.println(input.charAt(i));
@@ -93,22 +94,3 @@ public class Assignment4part2 {
   }
 }
 
-/*
-In this part, you will use stacks to recognize palindromes. 
-Palindromes are strings that read the same backward as forward (for example “madam”). 
-Write a program to read a line in from the keyboard and print to the display, whether or not it is a palindrome. 
-You MUST use three stacks to implement the program. For simplicity use only lower case letters in your test strings. 
-You may use the stack class from Java for Part 2.
- 
-Use the following logic
-1.	Push original string onto Stack_1 and also Stack_2
-2.	Pop Stack_1 and push onto Stack_3 until Stack_1 is empty
-3.	At this point Stack_2 is the original string and Stack_3 is the reverse
-4.	Compare Stack_2 and Stack_3 using dot =
-5.	If Stack_2 is equal to Stack_3 the string is a palindrome
-
-Test your string by entering data from the keyboard and writing out to the screen whether the string is a palindrome.
-
-
-
- */
