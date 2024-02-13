@@ -1,6 +1,7 @@
 {
     "java.project.sourcePaths": [
+        "Data_Structures/Assignments/assignment3",
         "Data_Structures/Assignments/assignment2",
-        "Data_Structures/Assignments/assignment3"
+        "Data_Structures/Assignments/assignment4"
     ]
 }
