@@ -79,21 +79,26 @@ class Stack {
   public static void main(String[] args) {
     //e
     Scanner sc = new Scanner(System.in);
-    System.out.println("Enter the size of the stack: ");
+    //get stack size
+    System.out.println("Enter the size of the stacks: ");
     int size = sc.nextInt();
     Stack stack = new Stack(size);
+    //prompt user for elements for first stack
     System.out.println("Enter the elements for stack A: ");
     for (int i = 0; i < size; i++) {
       stack.pushA(sc.nextInt());
     }
+    //prompt user for elements for second stack
     System.out.println("Enter the elements for stack B: ");
     for (int i = 0; i < size; i++) {
       stack.pushB(sc.nextInt());
     }
+    //pop elements from stack A and print them
     System.out.println("Popping elements from stack A: ");
     while (!stack.isEmptyA()) {
       System.out.println(stack.popA());
     }
+    //pop elements from stack B and print them
     System.out.println("Popping elements from stack B: ");
     while (!stack.isEmptyB()) {
       System.out.println(stack.popB());
@@ -102,10 +107,24 @@ class Stack {
     
   }
 } 
-
-// //main class
-// public class Assignment4part1 {
-//   //main method
-  
-// }
-
+//pseudocode
+//create stack class
+//create variables
+//create constructor
+//create push method for stack A
+//create push method for stack B
+//create pop method for stack A
+//create pop method for stack B
+//create is empty method for stack A
+//create is empty method for stack B
+//create is full method
+//create main method
+//create scanner object
+//prompt user for stack size
+//create stack object
+//prompt user for elements for first stack
+//push elements onto stack A
+//prompt user for elements for second stack
+//push elements onto stack B
+//pop elements from stack A and print them
+//pop elements from stack B and print them

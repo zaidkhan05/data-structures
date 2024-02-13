@@ -9,7 +9,7 @@
 import java.util.Scanner;
 
 //stack class
-//calling it smth else cuz its being used in the other file and breaking it :)
+//calling it smth else cuz its being used in the other file and breaking this one otherwise :)
 class Stacker {
   //variables
   int top;
@@ -93,4 +93,19 @@ public class Assignment4part2 {
 
   }
 }
+//pseudocode
+//create stack class
+//create variables
+//create constructor
+//create push method
+//create pop method
+//create is empty method
+//create main method
+//create scanner object
+//prompt user for string
+//create stack object
+//push string onto stack
+//pop stack 1 and push onto stack 3
+//compare stack 2 and stack 3
+//print result
 
