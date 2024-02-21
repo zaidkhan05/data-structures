@@ -16,16 +16,27 @@ public class Assignment5part2 {
         for(int i = 0; i < checkouts.length; i++){
             checkouts[i] = new LinkedList<String>();
         }
-        Random rand = new Random();
         Scanner sc = new Scanner(System.in);
         boolean addMore = true;
         boolean gameRunning = true;
+        //add 1 customer to each line
+        for(int i = 0; i < checkouts.length; i++){
+            //add a customer to each line
+            System.out.println("Name a customer for line " + (i+1) + ": ");
+            String x = sc.nextLine();
+            checkouts[i].add(x);
+        }
         while(gameRunning){
             for(int i = 0; i < checkouts.length; i++){
                 if(!checkouts[i].isEmpty()){
-                    System.out.println("Customer " + checkouts[i].peek() + " is being served at queue " + i);
-                    checkouts[i].remove();
+                    System.out.println("Customer " + checkouts[i].peek() + " is being served at queue " + (i+1);
                 }
+            }
+            System.out.println("Are there more customers waiting to get in line? (y/n)");
+            String waitForLine = sc.nextLine();
+            addMore = true;
+            if(waitForLine.equals("n")){
+                addMore = false;
             }
             while(addMore){
                 System.out.println("Enter a customer: ");
@@ -38,9 +49,10 @@ public class Assignment5part2 {
                 }
                 checkouts[shortestLine].add(customer);
                 
-                System.out.println("Would you like to add another customer for this run? (y/n)");
-                String response = sc.nextLine();
-                if(response.equals("n")){
+                System.out.println("Are there more customers waiting to get in line? (y/n)");
+                String moreForLine = sc.nextLine();
+                addMore = true;
+                if(moreForLine.equals("n")){
                     addMore = false;
                 }
             }
@@ -50,11 +62,18 @@ public class Assignment5part2 {
             
             for(int i = 0; i < checkouts.length; i++){
                 if(!checkouts[i].isEmpty()){
-                    System.out.println("Customer " + checkouts[i].peek() + " has checked out from like " + i);
+                    System.out.println("Customer " + checkouts[i].peek() + " has checked out from line " + (i+1);
                     checkouts[i].remove();
                 }
             }
+            System.out.println("Do you want to continue the simulation? (y/n)");
+            String continueSim = sc.nextLine();
+            if(continueSim.equals("n")){
+                gameRunning = false;
+            }
+
         }
+        System.out.println("The simulation has ended");
         sc.close();
         
     }
