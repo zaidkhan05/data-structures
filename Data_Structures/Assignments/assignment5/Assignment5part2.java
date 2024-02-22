@@ -11,9 +11,10 @@ import java.util.Scanner;
 
 public class Assignment5part2 {
     public static void main(String Args[]){
-        //e
+        //create 5 queues for the checkouts
         Queue[] checkouts = new Queue[5];
         for(int i = 0; i < checkouts.length; i++){
+            //use linkedlists for the different checkouts
             checkouts[i] = new LinkedList<String>();
         }
         Scanner sc = new Scanner(System.in);
@@ -26,20 +27,26 @@ public class Assignment5part2 {
             String x = sc.nextLine();
             checkouts[i].add(x);
         }
+        //start the simulation
         while(gameRunning){
             for(int i = 0; i < checkouts.length; i++){
+                //if the line is not empty, print the customer being served
                 if(!checkouts[i].isEmpty()){
-                    System.out.println("Customer " + checkouts[i].peek() + " is being served at queue " + (i+1);
+                    System.out.println("Customer " + checkouts[i].peek() + " is being served at queue " + (i+1));
                 }
             }
+            //add more customers to the lines
             System.out.println("Are there more customers waiting to get in line? (y/n)");
             String waitForLine = sc.nextLine();
             addMore = true;
+            //if the user does not want to add more customers, set addMore to false
             if(waitForLine.equals("n")){
                 addMore = false;
             }
+            //add customers to the lines
             while(addMore){
-                System.out.println("Enter a customer: ");
+                //add a customer to the shortest line
+                System.out.println("Enter a customer name: ");
                 String customer = sc.nextLine();
                 int shortestLine = 0;
                 for(int i = 0; i < checkouts.length; i++){
@@ -48,7 +55,7 @@ public class Assignment5part2 {
                     }
                 }
                 checkouts[shortestLine].add(customer);
-                
+                //ask if the user wants to add more customers
                 System.out.println("Are there more customers waiting to get in line? (y/n)");
                 String moreForLine = sc.nextLine();
                 addMore = true;
@@ -56,16 +63,18 @@ public class Assignment5part2 {
                     addMore = false;
                 }
             }
+            //print the lines
             for(int i = 0; i < checkouts.length; i++){
                 System.out.println("Line " + i + ": " + checkouts[i]);
             }
             
             for(int i = 0; i < checkouts.length; i++){
                 if(!checkouts[i].isEmpty()){
-                    System.out.println("Customer " + checkouts[i].peek() + " has checked out from line " + (i+1);
+                    System.out.println("Customer " + checkouts[i].peek() + " has checked out from line " + (i+1));
                     checkouts[i].remove();
                 }
             }
+            //ask if the user wants to continue the simulation
             System.out.println("Do you want to continue the simulation? (y/n)");
             String continueSim = sc.nextLine();
             if(continueSim.equals("n")){
@@ -79,23 +88,23 @@ public class Assignment5part2 {
     }
     
 }
-/*
-Write a program to simulate checkout lines at a grocery store. There will be multiple queues, one for each check out line. For this exercise, you may assume there are 5 check out lines. You can use an array of queues to simulate the checkout lines.
+//pseudocode
+// create 5 queues for the checkouts
+// add 1 customer to each line
+// start the simulation
+// while the game is running
+//     for each line
+//         if the line is not empty, print the customer being served
+//     add more customers to the lines
+//     ask if the user wants to add more customers
+//     if the user does not want to add more customers, set addMore to false
+//     add customers to the lines
+//     ask if the user wants to add more customers
+//     print the lines
+//     for each line
+//         if the line is not empty, print the customer being served
+//         remove the customer from the line
+//     ask if the user wants to continue the simulation
+//     if the user does not want to continue the simulation, set gameRunning to false
+// print that the simulation has ended
 
-Use the following logic:
-
-1.	Generate 5 customers and enqueue them, one customer in each queue
-
-2.	Each new customers ready to check out choose the shortest line
-
-Customers enter the check out queues randomly, and then each time a customer is generated that customer chooses the shortest line.
-
-If the lines are equal, then the first available line is chosen. Each transaction takes a random amount of time to complete. Print each action taken with Queue number, to the display.
-
-For your output show the queues with customers and activity, showing changes in each queue.
-
-You can capture all of the output at the end of the program running. Program should list actions that have been performed and Queue numbers.
-
-Be sure to limit your program in order to ensure that it does not run forever.
-
- */

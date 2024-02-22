@@ -9,10 +9,13 @@ import java.util.LinkedList;
 import java.util.Scanner;
 
 class Queue extends LinkedList<String>{
+    //add a chore to the list based on priority
     public void add(int priority, String chore){
+        //if the list is empty, add the chore
         if(this.isEmpty()){
             this.add(chore + " - " + priority);
         }
+        //if the list is not empty, add the chore based on priority
         else{
             //sort the list based on priority
             for(int i = 0; i < this.size(); i++){
@@ -33,6 +36,7 @@ class Queue extends LinkedList<String>{
             this.add(chore + " - " + priority);
         }
     }
+    //remove the first element in the list
     public void dequeue(){
         if(!this.isEmpty()){
             this.removeFirst();
@@ -49,11 +53,12 @@ class Queue extends LinkedList<String>{
 
 public class Assignment5part1 {
     public static void main(String[] args) {
-        //create a new linked list
+        //create a new priority queue
         Queue chores = new Queue();
         System.out.println("Lets make a list for the chores we need to do!");
         Scanner sc = new Scanner(System.in);
         boolean addMore = true;
+        //add chores to the list
         while(addMore){
             // list.add("");
             System.out.println("Enter a chore: ");
@@ -61,10 +66,12 @@ public class Assignment5part1 {
             System.out.println("Enter the priority of the chore: ");
             int priority = sc.nextInt();
             sc.nextLine();
+            //add the chore to the list
             chores.add(priority, chore);
 
             System.out.println("Do you want to add another chore? (y/n)");
             String temp = sc.nextLine();
+            //check if the user wants to add another chore
             if(temp.equalsIgnoreCase("n")){
                 addMore = false;
             }
@@ -76,6 +83,7 @@ public class Assignment5part1 {
                 addMore = true;
             }
         }
+        //print the list of chores
         System.out.println("Here is the list of chores and their priorities: ");
         sc.close();
 
@@ -83,14 +91,16 @@ public class Assignment5part1 {
     }
     
 }
-
-/*
-Objectives	The purpose of this lab is to reinforce linked list and queue concepts in Java
-
-Assignment 05 PART 1	Queues (50 points) - Note Part 1 is a separate deliverable:
-
-Write a class with a main method that uses a priority queue to store a list of chores and the chore’s priority. You need to store the name of the chore and it’s assigned priority. Assigned priorities can be any positive integer. The rest is up to you.
-
-YOU may use the Java Linked List Class, and build your queue with that class.
-
- */
+//pseudocode
+//create a new priority queue
+//create a scanner
+//create a boolean to check if the user wants to add more chores
+//while the user wants to add more chores
+//  ask the user for a chore
+//  ask the user for the priority of the chore
+//  add the chore to the list
+//  ask the user if they want to add another chore
+//  if the user does not want to add another chore, set addMore to false
+//  if the user wants to add another chore, set addMore to true
+//  if the user enters an invalid input, assume they want to add another chore
+//print the list of chores
