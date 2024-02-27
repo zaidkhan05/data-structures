@@ -29,7 +29,7 @@ public class Assignment5part2 {
         while(gameRunning){
             for(int i = 0; i < checkouts.length; i++){
                 if(!checkouts[i].isEmpty()){
-                    System.out.println("Customer " + checkouts[i].peek() + " is being served at queue " + (i+1);
+                    System.out.println("Customer " + checkouts[i].peek() + " is being served at queue " + (i+1));
                 }
             }
             System.out.println("Are there more customers waiting to get in line? (y/n)");
@@ -62,7 +62,7 @@ public class Assignment5part2 {
             
             for(int i = 0; i < checkouts.length; i++){
                 if(!checkouts[i].isEmpty()){
-                    System.out.println("Customer " + checkouts[i].peek() + " has checked out from line " + (i+1);
+                    System.out.println("Customer " + checkouts[i].peek() + " has checked out from line " + (i+1));
                     checkouts[i].remove();
                 }
             }
