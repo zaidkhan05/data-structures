@@ -1,10 +1,4 @@
-// Name:	Zaid Khan
-// Class:	CS 3305/W04
-// Term:	Spring 2024
-// Instructor:  Carla McManus
-// Assignment:  8-BTs
-// IDE:  vscode
-
+import java.util.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 ////////////////////////////////////////////////////////////////////////////////////////
@@ -260,11 +254,11 @@ class BST<E extends Comparable<E>> extends AbstractTree<E>{
             return ((Integer) root.element) + tree_sum(root.left) + tree_sum(root.right);
         }
     }
-    int tree_average(TreeNode<E> root) {
+    double tree_average(TreeNode<E> root) {
         if (root == null) {
             return 0;
         } else {
-            return (tree_sum(root) / getSize());
+            return (int) (tree_sum(root) / getSize());
         }
     }
     boolean tree_is_balanced(TreeNode<E> root) {
@@ -278,19 +272,19 @@ class BST<E extends Comparable<E>> extends AbstractTree<E>{
             }
         }
     }
-
+    //this doesnt work with doubles
     
     boolean isBST(TreeNode<E> root) {
-        return isBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+        return isBST(root, Double.MIN_VALUE, Double.MAX_VALUE);
     }
-    boolean isBST(TreeNode<E> root, int min, int max) {
+    boolean isBST(TreeNode<E> root, double min, double max) {
         if (root == null) {
             return true;
         }
-        if ((Integer) root.element < min || (Integer) root.element > max) {
+        if ((Double) root.element < min || (Double) root.element > max) {
             return false;
         }
-        return isBST(root.left, min, (Integer) root.element - 1) && isBST(root.right, (Integer) root.element + 1, max);
+        return isBST(root.left, min, (Double) root.element - 1) && isBST(root.right, (Double) root.element + 1, max);
     }
 
 }
@@ -299,13 +293,14 @@ class BST<E extends Comparable<E>> extends AbstractTree<E>{
 
 
 
-public class Assignment8 {
+public class Assignment8doubles {
 
     public static void main(String[] args) {
         //e
-        Integer[] e = { 2,1,3};
-        BST<Integer> tree = new BST<>(e);
-        System.out.println("sample1");
+        // Double[] e = { 1, 2, 4, 8, 5, 9, 3, 6, 10, 11, 7, 12};
+        Double pre3[] = {.5, .3, .2, .4, .7, .6, .8};
+        BST<Double> tree = new BST<>(pre3);
+        System.out.println("TheTree");
         System.out.println("Binary search tree ? " + tree.isBST(tree.getRoot()));
         System.out.println("Depth: " + tree.depth(tree.getRoot()));
         System.out.println("Max: " + tree.max(tree.getRoot()));
@@ -313,27 +308,30 @@ public class Assignment8 {
         System.out.println("Average: " + tree.tree_average(tree.getRoot()));
         System.out.println("Is Balanced ? " + tree.tree_is_balanced(tree.getRoot()));
         System.out.println();
-        
+        //f
 
         
 
         
     }
 }
-//pseudocode
-//create a tree
-//insert values into the tree
-//print the tree name
-//print whether the tree is a binary search tree
-//print the depth of the tree
-//print the max value in the tree
-//print the sum of the values in the tree
-//print the average of the values in the tree
-//print whether the tree is balanced
-
 
 /*
-
+Objective of this assignment is to reinforce understanding of Binary Trees and recursion.
+Write a program to implement Binary Trees. You use the Node class from the Java Library, or write
+your own Binary Tree Class, and implement the methods listed below. Hint, review section 25.2
+(starts on p. 930) in the text for designing and implenting binary trees using linked lists.
+Data is provided for this assignment. The data is in the form of sample tree arrays, listed in the
+additional data file that is attached to the Assignment as a file called A8-BT-testdata.txt.
+You are NOT going to read this data from the file into your program !
+You will hard code the test data that is provided in A8-BT-testdata.txt, i.e., copy and paste the data.
+In addition, note that the sample trees use pre order and in order traversals, as indicated by the
+sample data array names. For example, the array named, double pre[ ] is data used for pre-order
+traversal, and the array named double in[ ] is for in-order traversal. After the insertion of data for each
+tree, you must determine whether the tree is a binary search tree or not, and provide that information
+in your test results.
+HINT: Create one tree at a time, using the data provided for that tree, execute the methods on that
+tree, write the results to the screen, and get a screenshot of each output.
 METHODS
 1. depth
 if root is NULL, return -1
@@ -359,5 +357,13 @@ then the tree is not balanced
 otherwise, if the difference in depths between the left and right subtrees
 is greater than one then the tree is not balanced
 otherwise, the tree is balanced
-
+TEST: To test the above methods, create 6 trees, one at a time, using the sample data and
+write your results in the listed form shown below
+Tree_Name
+Binary search tree ? Yes or no // indicate whether the tree is a BST
+Depth
+Max
+Sum
+Average
+Is Balanced ? 
  */
