@@ -1,4 +1,9 @@
-
+// Name:	Zaid Khan
+// Class:	CS 3305/W04
+// Term:	Spring 2024
+// Instructor:  Carla McManus
+// Assignment:  7-Part-1-Sorting
+// IDE:  vscode
 import java.util.*;
 import java.util.LinkedList;
 import java.io.*;
@@ -10,7 +15,7 @@ public class assignment7part1 {
         if(list.size() <= 1){
             return list;
         }
-        //create two new linked lists
+        //create left and right linked lists
         LinkedList<Integer> left = new LinkedList<Integer>();
         LinkedList<Integer> right = new LinkedList<Integer>();
         //add the elements from the list to the left and right lists
@@ -22,7 +27,7 @@ public class assignment7part1 {
                 right.add(list.get(i));
             }
         }
-        //recursively sort the left and right lists
+        //recursively sort the left and right lists cuz linkedlists
         left = mergeSort(left);
         right = mergeSort(right);
         //return the merged lists
@@ -60,6 +65,7 @@ public class assignment7part1 {
         //create a new linked list
         LinkedList<Integer> list = new LinkedList<Integer>();
         //add the integers from the file to the linked list
+        //try-catch block to handle file not found exception
         try{
             File file = new File("C:\\Users\\agent\\data-structures-1\\Data_Structures\\Assignments\\assignment7\\mergetest.txt");
             Scanner sc = new Scanner(file);
@@ -69,7 +75,7 @@ public class assignment7part1 {
             sc.close();
         }
         catch(FileNotFoundException e){
-            System.out.println("File not found");
+            System.out.println("File not found, add the source path ");
         }
         //print the unsorted list
         System.out.println("Unsorted list: " + list);
@@ -81,15 +87,41 @@ public class assignment7part1 {
     
 }
 
-/*
-Part 1 - The objective of Part 1 is to reinforce the understanding of Sorting data structures.
-
-You must write your own Mergesort code using Linked Lists, not ArrayLists, and you may use Linked List class available in the Java Library. You may not use any predefined sorting methods in the Java Library.
-
-One of the advantages of Mergesort algorithm is that it can easily be adapted to sort a linked list of values. This is because the algorithm retrieves the values from the two lists being merged in the order that they occur in the lists. If the lists are linked lists, then that algorithm can simply move down the list node after node.
-
-Write a program that sorts a linked list of integers using the Mergesort algorithm. The program will read the integers into a linked list, and then sort the linked list using Mergesort. This will require additional linked lists, but you should use linked lists, not arrays, for all your list storage.
-
-You may read data from the mergetest.txt file that we have provided or you may hard code that data, into one linked list. Once you have the linked list, then you begin the Mergesort algorithm.
-
- */
+//pseudocode
+////////////////////////////
+//mergesort method
+//mergeSort(list)
+//if list.size <= 1
+//return list
+//left = new LinkedList
+//right = new LinkedList
+//for i = 0 to list.size
+//if i < list.size/2
+//add list.get(i) to left
+//else
+//add list.get(i) to right
+//left = mergeSort(left)
+//right = mergeSort(right)
+//return merge(left, right)
+///////////////////////////////
+//merge method
+//merge(left, right)
+//merged = new LinkedList
+//while left is not empty and right is not empty
+//if left.getFirst < right.getFirst
+//add left.removeFirst to merged
+//else
+//add right.removeFirst to merged
+//while left is not empty
+//add left.removeFirst to merged
+//while right is not empty
+//add right.removeFirst to merged
+//return merged
+///////////////////////////////
+//main method
+//list = new LinkedList
+//try/catch block for opening file and getting the integers and add them to the list
+//print "Unsorted list: " + list
+//list = mergeSort(list)
+//print "Sorted list: " + list
+///////////////////////////////
