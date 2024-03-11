@@ -1,16 +1,20 @@
+// Name:    Zaid Khan
+// Class:   CS 3305/W04
+// Term:    Spring 2024
+// Instructor:  Carla McManus
+// Assignment:  06-Part-2.1-Time
+// IDE:  vscode
 public class Assignment6part2_1 {
     public static void main(String[] args) {
-        //time complexity is O(1)
-        //why
-        //the time complexity is O(1) because the time it takes to display the current time is constant
-        //it does not depend on the size of the input
-        //so the time complexity is O(1)
+        //display the current time
         System.out.println(System.currentTimeMillis());
+        //determine the time complexity
         System.out.println("Time complexity is O(1) because the time it takes to display the current time is constant");
 
-        
+
+       
     }
 }
-/*
-1.	Write a Java program that displays the current time and determine the time compexity (i.e. what is the big O)
- */
+//pseuocode
+//display the current time
+//determine the time complexity
