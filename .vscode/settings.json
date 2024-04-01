@@ -1,11 +1,13 @@
 {
     "java.project.sourcePaths": [
         "Data_Structures/in class stuffs/src",
+        "Data_Structures/Assignments/assignment9",
+        "Data_Structures/Assignments/assignment8",
         "Data_Structures/Assignments/assignment6",
         "Data_Structures/Assignments/assignment5",
         "Data_Structures/Assignments/assignment4",
         "Data_Structures/Assignments/assignment3",
         "Data_Structures/Assignments/assignment2",
-        "Data_Structures/Assignments/assignment8"
+        "Data_Structures/Assignments/assignment10"
     ]
 }
