@@ -254,6 +254,48 @@ class UnweightedGraph<V> extends AbstractGraph<V>{
     }
 }
 
+class UnweightedGraphWithNonrecursiveDFS<V> extends UnweightedGraph<V>{
+    public UnweightedGraphWithNonrecursiveDFS(){
+    }
+    public UnweightedGraphWithNonrecursiveDFS(V[] vertices, int[][] edges){
+        super(vertices, edges);
+    }
+    public UnweightedGraphWithNonrecursiveDFS(List<V> vertices, List<Edge> edges){
+        super(vertices, edges);
+    }
+    public UnweightedGraphWithNonrecursiveDFS(List<Edge> edges, int numberOfVertices){
+        super(edges, numberOfVertices);
+    }
+    public UnweightedGraphWithNonrecursiveDFS(int[][] edges, int numberOfVertices){
+        super(edges, numberOfVertices);
+    }
+    @Override
+    public Tree dfs(int v){
+        List<Integer> searchOrder = new ArrayList<>();
+        int[] parent = new int[vertices.size()];
+        for(int i = 0; i < parent.length; i++){
+            parent[i] = -1;
+        }
+        boolean[] isVisited = new boolean[vertices.size()];
+        java.util.Stack<Integer> stack = new java.util.Stack<>();
+        stack.push(v);
+        while(!stack.isEmpty()){
+            int u = stack.pop();
+            if(!isVisited[u]){
+                searchOrder.add(u);
+                isVisited[u] = true;
+                for(Edge e : neighbors.get(u)){
+                    if(!isVisited[e.v]){
+                        stack.push(e.v);
+                        parent[e.v] = u;
+                    }
+                }
+            }
+        }
+        return new Tree(v, parent, searchOrder);
+    }
+}
+
 
 public class Assignment11 {
     //test dfs
@@ -273,19 +315,16 @@ public class Assignment11 {
             {10, 2}, {10, 4}, {10, 8}, {10, 11},
             {11, 8}, {11, 9}, {11, 10}
         };
-        UnweightedGraph<String> graph = new UnweightedGraph<>(vertices, edges);
-        AbstractGraph<String>.Tree tree = graph.dfs(5);
-        tree.printTree();
-        java.util.List<Integer> searchOrder = tree.getSearchOrder();
-        System.out.println("Search order: " + searchOrder);
-        for(int i = 0; i < searchOrder.size(); i++){
-            if(i % 5 == 0){
-                System.out.println();
-            }
-            else{
-                System.out.print(graph.getVertex(searchOrder.get(i)) + " ");
-            }
+        Graph<String> graph = new UnweightedGraphWithNonrecursiveDFS<>(vertices, edges);
+        AbstractGraph<String>.Tree dfs = graph.dfs(5);
+        dfs.printTree();
+        System.out.println("Search order: " + dfs.getSearchOrder());
+        for(int i = 0; i < vertices.length; i++){
+            System.out.print("Path for " + vertices[i] + ": ");
+            dfs.printPath(i);
+            System.out.println();
         }
+
     }
     
 }
