@@ -1,3 +1,10 @@
+// Name: Zaid Khan
+// Class: CS 3305/W04
+// Term: Spring 2024
+// Instructor: Carla McManus
+// Assignment: 10-Part-1-Hashing
+
+
 import java.util.LinkedList;
 
 interface MyMap<K, V> {
@@ -240,6 +247,15 @@ class MyHashMap<K, V> implements MyMap<K, V> {
         builder.append("]");
         return builder.toString();
     }
+    //use open addressing with linear probing
+    //f(key) = key % size
+    //size is the hash-table size
+    //table size is doubled whenever the load factor exceeds the threshold (0.5)
+    //you will need to write a different hash function ie can’t use the one in the book
+    //use f(key) = key % size as the hash function
+    //initially, the hash-table size is 4
+    //table size is doubled whenever the load factor exceeds the threshold (0.5)
+    
 }
 
 
@@ -257,20 +273,6 @@ public class Assignment10 {
         System.out.println("Is age 33 in the map? " + map.containsValue(33));
         map.remove("Smith");
         System.out.println("Entries in map: " + map);
+
     }
 }
-
-
-/*
-There is only one Part to this assignment, Programming Exercise 27.1 from the Liang textbook, end of
-the Chapter Programming Exercises, re-printed below.
-In the text you will find a custom Map interface to mirror java.util.Map. The name for that interface is
-MyMap and there is a concrete class MyHashMap, as shown in Figure 27.9, page 995 of Liang text.
-Implement MyMap using open addressing with linear probing. Hint: You must create a new concrete
-class that implements MyMap using open addressing with linear probing, as described on p. 989.
-See the lecture on linear probing.
-For simplicity, use f(key) = key % size as the hash function, where size is the hash-table size. Initially,
-the hash-table size is 4. The table size is doubled whenever the load factor exceeds the threshold
-(0.5). Note: you will need to write a different hash function ie can’t use the one in the book
-
- */

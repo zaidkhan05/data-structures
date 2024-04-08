@@ -468,13 +468,12 @@ public class Assignment9part2 {
     public static void main(String[] args) {
         //e   
         AVLTree<Integer> tree = new AVLTree<>();
-        tree.insert(8);
-        tree.insert(26);
-        tree.insert(49);
-        tree.insert(14);
-        tree.insert(1);
-        tree.insert(20);
-        tree.insert(35);
+        tree.insert(3);
+        tree.insert(4);
+        tree.insert(45);
+        tree.insert(21);
+        tree.insert(92);
+        tree.insert(12);
         //test
         System.out.println("Inorder (sorted): ");
         tree.inorder();
