@@ -1,3 +1,8 @@
+// Name: Zaid Khan
+// Class: CS 3305/W04
+// Term: Spring 2024
+// Instructor: Carla McManus
+// Assignment: 11-Part-1-DFS
 import java.util.*;
 interface Graph<V>{
     public int getSize();
