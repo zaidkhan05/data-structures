@@ -328,15 +328,3 @@ public class Assignment11 {
     }
     
 }
-
-
-/*
-Implement Depth First Search (DFS) using a stack. The depth-first search (dfs) algorithm described in
-Listing 28.8 uses recursion. Design a new algorithm without using recursion. First, describe it using
-pseudocode and copy that pseudocode into the assignment submittal. Next, implement it by defining
-a new class named UnweightedGraphWithNonrecursiveDFS that extends UnweightedGraph (shown
-in Listing 28.4) and overrides the [Depth First Search] dfs method.
-NOTE: when you review AbstractGraph.java Listing 28.3 you will notice that there are two dfs
-methods (page 1031). You need to override the method dfs(int v), (line 164, page 1031) not the other
-one with the longer list of parameters.
- */
