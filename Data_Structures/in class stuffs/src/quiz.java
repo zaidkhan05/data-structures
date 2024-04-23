@@ -1,19 +1,4 @@
 import java.util.*;
-import java.util.hashmap;
-import java.util.hashset;
-import java.util.hashmap.entry;
-import java.util.hashmap.hashmap;
-import java.util.hashmap.hashset;
-import java.util.hashmap.iterator;
-import java.util.hashmap.map;
-import java.util.hashmap.set;
-import java.util.hashmap.treemap;
-import java.util.hashmap.treeset;
-import java.util.hashmap.hashmap.entry;
-import java.util.hashmap.hashmap.hashmap;
-import java.util.hashmap.hashmap.hashset;
-import java.util.hashmap.hashmap.iterator;
-
 
 public class quiz{
 
